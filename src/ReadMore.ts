@@ -1,9 +1,10 @@
+import { timeStamp } from 'console';
 import { html, css, LitElement, property, internalProperty } from 'lit-element';
 export class ReadMore extends LitElement {
   static styles = css`
     div {
       overflow: hidden;
-      transition: height 0.2s;
+      transition: height 0.2s ease-in-out;
     }
   `;
 
@@ -42,7 +43,6 @@ export class ReadMore extends LitElement {
     const buttonWidth =
       this.shadowRoot?.querySelector('button')?.clientWidth ?? 0;
 
-    this.calcMaxHeight(this.fullText);
     this.textSmall = this.calcLength(
       this.fullText,
       this.maxLines,
@@ -50,15 +50,18 @@ export class ReadMore extends LitElement {
       buttonWidth
     );
 
-    this.text = this.textSmall;
+    //this.textSmall;
   }
 
   firstUpdated() {
     this.setSize();
+    this.calcMaxHeight(this.fullText);
+    this.text = this.textSmall;
   }
 
   _handleResize() {
     this.setSize();
+    this.calcMaxHeight(this.fullText);
   }
 
   calcMaxHeight(text: string) {
