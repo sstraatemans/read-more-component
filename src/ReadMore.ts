@@ -41,7 +41,7 @@ export class ReadMore extends LitElement {
   setSize() {
     const width = this.shadowRoot?.querySelector('div')?.clientWidth ?? 0;
     const buttonWidth =
-      this.shadowRoot?.querySelector('button')?.clientWidth ?? 0;
+      this.shadowRoot?.querySelector('button')?.offsetWidth ?? 0;
 
     this.textSmall = this.calcLength(
       this.fullText,
@@ -111,6 +111,7 @@ export class ReadMore extends LitElement {
 
           // if the line is too long, use the previousline and break
           // and add the last line back to the wordArray;
+          console.log(buttonWidth);
           if (
             (j < maxLines - 1 && ruler.offsetWidth > width) ||
             (j === maxLines - 1 && ruler.offsetWidth > width - buttonWidth)
