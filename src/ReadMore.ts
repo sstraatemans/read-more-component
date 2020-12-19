@@ -49,25 +49,24 @@ export class ReadMore extends LitElement {
       width,
       buttonWidth
     );
-
-    //this.textSmall;
   }
 
   firstUpdated() {
     this.setSize();
     this.calcMaxHeight(this.fullText);
-    this.text = this.textSmall;
+    this.isOpen ? (this.text = this.fullText) : (this.text = this.textSmall);
   }
 
   _handleResize() {
     this.setSize();
     this.calcMaxHeight(this.fullText);
+    this.isOpen ? (this.text = this.fullText) : (this.text = this.textSmall);
   }
 
   calcMaxHeight(text: string) {
     const ruler = document.createElement('div');
     const div = this.shadowRoot?.querySelector('div');
-    ruler.innerHTML = text;
+    ruler.innerHTML = text + ' ' + this.shadowRoot?.querySelector('button');
     this.shadowRoot?.querySelector('div')?.appendChild(ruler);
     this.maxHeight = ruler.offsetHeight;
 
