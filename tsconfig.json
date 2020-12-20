@@ -6,7 +6,7 @@
     "noEmitOnError": true,
     "lib": ["es2017", "dom"],
     "strict": true,
-    "esModuleInterop": true,
+    "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "importHelpers": true,
@@ -14,7 +14,7 @@
     "sourceMap": true,
     "inlineSources": true,
     "rootDir": "./",
-    "declaration": true,
+    "declaration": true
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts", "**/*.js"]
 }

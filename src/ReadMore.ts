@@ -1,5 +1,5 @@
-import { timeStamp } from 'console';
 import { html, css, LitElement, property, internalProperty } from 'lit-element';
+import { debounce } from 'ts-debounce';
 export class ReadMore extends LitElement {
   static styles = css`
     div {
@@ -24,7 +24,7 @@ export class ReadMore extends LitElement {
   constructor() {
     super();
     this.setSize = this.setSize.bind(this);
-    this._handleResize = this._handleResize.bind(this);
+    this._handleResize = debounce(this._handleResize.bind(this), 200);
   }
 
   connectedCallback() {

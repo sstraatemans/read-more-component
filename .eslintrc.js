@@ -1,3 +1,5 @@
+const { off } = require('process');
+
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
@@ -13,6 +15,7 @@ module.exports = {
     // disable the rule for all files
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/no-this-alias': 'off',
     'import/named': 'off',
     'import/no-unresolved': 'off',
     'import/extensions': ['error', 'always', { ignorePackages: true }],
